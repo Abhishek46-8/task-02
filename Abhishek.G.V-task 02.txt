@@ -1,0 +1,38 @@
+1. Load the rest countries data using your html and script.js file 
+and run a for loop on the data and print all the country name in the console. 
+->CODE:
+  var req= new XMLHttpRequest();
+  req.open('GET','https://restcountries.eu/rest/v2/all',true);
+  req.send();
+  req.onload=function(){
+  var data=JSON.parse(this.response);
+  for(var i in data)
+  console.log(data[i].name)
+}
+---------------------------------------------------
+2. Give a write up on Difference between copy by value and copy by reference.
+-> Copy by reference : Here the object is copied to another variable using = 
+		      operator,or in other words the address of that value is copied
+		      to another variable.Copy by reference can happen normally
+		      to non-premitive data types like array,String.
+                      eg:-var arr1=[1,2,3];
+ 			 var arr2=arr1;
+  			 arr1[0]=10
+  			 console.log(arr1);
+  			 console.log(arr2);  
+			Output:
+				[ 10, 2, 3 ]
+				[ 10, 2, 3 ]
+   Copy by value: Here the value of one variable is copied to another variable using
+		 = operator.This can performed on Primitive data types.
+		eg :- var a=10;
+		      var b=a;
+		      a=3;
+		      console.log(a,b);
+		output:- 3 10
+
+3. How to copy by value a composite datatype (array+objects).
+   There are 3 ways to copy by value a composite datatype :
+i)Using the spread (...) syntax
+ii)Using the Object.assign() method
+iii)Using the JSON.stringify() and JSON.parse() methods
